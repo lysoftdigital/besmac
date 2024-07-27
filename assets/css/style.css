@@ -42,12 +42,55 @@ h1, h2, h3, h4, h5, h6 {
   background: #1a1814;
 }
 
+.btn-wsp{
+  position:fixed;
+  width:70px;
+  height:63px;
+  line-height: 62px;
+  bottom:15.5px;
+  right:25px;
+  background:#25D366    ;
+    color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:42px;
+  box-shadow: 0px 1px 10px rgba(24, 19, 19, 0.3);
+  z-index:100;
+  transition: all 300ms ease;
+  animation: pulso-whatsapp 2s infinite;
+}
+@keyframes pulso-whatsapp {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgb(0, 0, 0);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 30px rgba(26, 51, 244, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(88, 214, 141, 0);
+  }
+}
+.btn-wsp:hover{
+  background: #36d674;
+  transform: scale(1.1);
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+  .btn-wsp{
+    width:63px;
+    height:63px;
+    line-height: 66px;
+  }
+}
+
 #preloader:before {
   content: "";
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #1a1814;
+  border: 6px solid #1a1418;
   border-top-color: #cda45e;
   border-bottom-color: #cda45e;
   border-radius: 50%;
@@ -82,8 +125,8 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  right: 15px;
-  bottom: 15px;
+  left: 20px; /* Cambiado de right a left */
+  bottom: 20px;
   z-index: 996;
   width: 44px;
   height: 44px;
@@ -203,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 50px;
 }
 
 /*--------------------------------------------------------------
@@ -443,15 +486,46 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/hero-bg.png") center center no-repeat; /* Centra la imagen */
   background-size: cover;
   position: relative;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
+
+@media (max-width: 768px) {
+  #hero {
+    background-position: center -253%; /* Mueve la imagen hacia abajo */
+    height: auto;
+    padding-top: 100px; /* Agrega un margen superior sin cambiar el tamaño de la imagen */
+  }
+
+  #hero .container {
+    text-align: center;
+  }
+
+  #hero .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #hero .col-lg-8 {
+    margin-bottom: 20px;
+  }
+
+  #hero .col-lg-4 {
+    margin-top: 20px;
+  }
+}
+
 
 #hero:before {
   content: "";
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.0);
   position: absolute;
   bottom: 0;
   top: 0;
